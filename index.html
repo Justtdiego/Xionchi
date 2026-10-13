@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Para mi Xionchi</title>
+<link rel="icon" href="logocapifeli.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Fredoka:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- PANTALLA 1: bienvenida -->
+<section id="screen1" class="screen active">
+  <div class="card">
+    <img class="logo" src="logocapifeli.png" alt="Capibara feliz">
+    <h1>Hola<br>Xionchi</h1>
+    <p class="sub">¿QUIERES VER TU REGALO?</p>
+    <div class="btns">
+      <button class="pill" data-go="screen3">No gracias</button>
+      <button class="pill" data-go="screen2">Si pls</button>
+    </div>
+  </div>
+</section>
+
+<!-- PANTALLA 3: si dice "No thanks" -->
+<section id="screen3" class="screen">
+  <div class="card">
+    <img class="logo" src="logocapitite.png" alt="Capibara tierno">
+    <h1 class="small-title">TE PROMETO QUE TE GUSTARÁ</h1>
+    <p class="sub">¿PODRÍAS DARNOS UNA OPORTUNIDAD A MÍ Y A LOS AMOROSOS CAPIBARA?</p>
+    <div class="btns">
+      <button class="pill" data-go="screen1">Otra oportunidad</button>
+    </div>
+  </div>
+</section>
+
+<!-- PANTALLA 2: los 4 regalos -->
+<section id="screen2" class="screen">
+  <div class="card wide">
+    <h1 class="small-title">¡REGALOS SORPRESA PARA TI!</h1>
+    <p class="sub">HAZ CLIC EN UNO PARA ABRIR LOS REGALOS SORPRESA</p>
+    <div class="gifts">
+      <button class="gift" data-gift="flores"><img src="iconoflores.png" alt="Flores"></button>
+      <button class="gift" data-gift="musica"><img src="iconomusica.png" alt="Música"></button>
+      <button class="gift" data-gift="fotos"><img src="iconofotos.png" alt="Fotos"></button>
+      <button class="gift" data-gift="carta"><img src="iconocarta.png" alt="Carta"></button>
+    </div>
+  </div>
+</section>
+
+
+<!-- PANTALLA REGALO 1: flores -->
+<section id="screenFlores" class="screen">
+  <button class="pill back" data-go="screen2">&larr; Regresar</button>
+  <div class="card gift-card">
+    <div class="gift-head">
+      <img src="logocapifeli.png" alt="">
+      <h1 class="small-title">Flores para ti</h1>
+      <img src="logocapifeli.png" alt="">
+    </div>
+    <div class="gift-body">
+      <div class="msgs left">
+        <p class="msg">Eres mi persona favorita</p>
+        <p class="msg">Me haces reír como nadie</p>
+        <p class="msg">Contigo todo es más bonito</p>
+        <p class="msg">Tu sonrisa me encanta</p>
+      </div>
+      <div class="bouquet">
+        <!-- Pon aquí tu imagen del capibara con flores: capiflores.png -->
+        <img src="ramoflores.png" alt="Capibara con flores">
+      </div>
+      <div class="msgs right">
+        <p class="msg">Gracias por estos 3 meses</p>
+        <p class="msg">Me haces muy feliz</p>
+        <p class="msg">Quiero muchos meses más</p>
+        <p class="msg">Te quiero muchísimo</p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- PANTALLA REGALO 2: música -->
+<section id="screenMusica" class="screen">
+  <button class="pill back" data-go="screen2">&larr; Regresar</button>
+  <div class="card gift-card">
+    <div class="gift-head">
+      <img src="logocapifeli.png" alt="">
+      <h1 class="small-title">ESTA CANCIÓN ME RECUERDA A TI</h1>
+      <img src="logocapifeli.png" alt="">
+    </div>
+    <div class="music-body">
+      <div class="video" id="video">
+        <p class="video-empty">🎵</p>
+      </div>
+      <div class="song-info">
+        <h2>Song title:</h2>
+        <p class="song-name">"kora" By Nino x Vizzi</p>
+        <h2>Description:</h2>
+        <p class="song-desc">Esta canción me recuerda a ti ya que dejamos en manos de Dios nuestra relacion y q sea el quien nos diga si lo nuestro funcionara lo cual si creo y tengo fe mi amor.</p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+
+<!-- PANTALLA REGALO 3: fotos -->
+<section id="screenFotos" class="screen">
+  <button class="pill back" data-go="screen2">&larr; Regresar</button>
+  <div class="card gift-card photos-card">
+    <div class="photo-grid">
+      <figure class="polaroid" style="--r:-6deg">
+        <img class="photo" src="foto1.jpg" alt="Foto 1">
+        <img class="peek" src="logocapitite.png" alt="" style="left:-14px;bottom:-12px">
+      </figure>
+      <figure class="polaroid" style="--r:4deg">
+        <img class="photo" src="foto2.jpg" alt="Foto 2">
+        
+      </figure>
+      <figure class="polaroid" style="--r:-4deg">
+        <img class="photo" src="foto3.jpg" alt="Foto 3">
+        <img class="peek" src="logocapifeli.png" alt="" style="left:-16px;bottom:8px">
+      </figure>
+      <figure class="polaroid" style="--r:6deg">
+        <img class="photo" src="foto4.jpg" alt="Foto 4">
+        <img class="peek" src="logocapifeli.png" alt="" style="right:-12px;top:-14px">
+      </figure>
+      <h1 class="photo-title">Mi persona favorita</h1>
+      <figure class="polaroid" style="--r:5deg">
+        <img class="photo" src="foto5.jpg" alt="Foto 5">
+        
+      </figure>
+      <figure class="polaroid" style="--r:-5deg">
+        <img class="photo" src="foto6.jpg" alt="Foto 6">
+        <img class="peek" src="logocapitite.png" alt="" style="left:30%;top:-16px">
+      </figure>
+      <figure class="polaroid" style="--r:4deg">
+        <img class="photo" src="foto7.jpg" alt="Foto 7">
+        <img class="peek" src="logocapifeli.png" alt="" style="left:-14px;bottom:-10px">
+      </figure>
+      <figure class="polaroid" style="--r:-6deg">
+        <img class="photo" src="foto8.jpg" alt="Foto 8">
+        <img class="peek" src="logocapitite.png" alt="" style="right:-14px;bottom:-12px">
+      </figure>
+    </div>
+  </div>
+</section>
+ 
+<!-- PANTALLA REGALO 4: carta -->
+<section id="screenCarta" class="screen">
+  <button class="pill back" data-go="screen2">&larr; Regresar</button>
+  <div class="card gift-card letter-card">
+    <div class="letter">
+      <h1>Feliz 3 meses, mi amorchito</h1>
+      <div class="letter-text">
+        <p>Holaaa, mi niña hermosa. ❤️.</p>
+        <p>Hoy cumplimos 3 meses juntitos y de verdad no sabes lo feliz que me hace tenerte en mi vida. Son 3 meses amooor 3 meses llenos de momentos bonitos, sonrisas, coleras xd, cariño y muitooo amor por ti.</p>
+        <p>Quiero que sepas que me haces muy feliz, que me encanta hablar contigo, pasar tiempo contigo. Me gusta tu forma de ser, tu sonrisaaa, tus ojitos hermoshooos y esa manera tan bonita que tienes de hacerme sentir muy especial y afortunadooo.</p>
+        <p>Gracias por llegar a mi vida, por darme tu amor, por hacerme sonreír incluso en mis días malos y por permitirme ser parte de tu vida. No soy perfecto y sé que a veces puedo equivocarme, pero quiero que sepas que mis sentimientos por ti son sinceros y que quiero seguir aprendiendo a amarte y ser mejor hombre para ti cada día.</p>
+        <p>Mi princesa hermosha, quiero seguir cumpliendo muchos meses más contigo, quiero seguir creando recuerdos a tu lado, abrazarte mucho, llenarte de besitos y recordarte siempre lo importante que eres para mí. Quiero que cuando tengas un día triste sepas que aquí tienes a alguien que te ama y que quiere verte feliz. </p>
+        <p class="sign">Con todo mi amor,<br><strong>[Tu Ponponsito]</strong></p>
+      </div>
+      <img class="letter-capy" src="logocapifeli.png" alt="">
+    </div>
+    <div class="letter-photos">
+      <div class="letter-photo"><img src="carta1.jpg" alt="Foto 1"></div>
+      <div class="letter-photo"><img src="carta2.jpg" alt="Foto 2"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Ventanita al abrir un regalo -->
+<div id="modal" class="modal">
+  <div class="card">
+    <img class="logo small" id="modalImg" src="" alt="">
+    <h1 class="small-title" id="modalTitle"></h1>
+    <p class="sub" id="modalText"></p>
+    <div class="btns"><button class="pill" id="closeModal">Close</button></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

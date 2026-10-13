@@ -1,0 +1,201 @@
+:root{
+  --fondo:#7f5206;
+  --naranja:#f39b2f;
+  --cafe:#8a5a14;
+  --crema:#fbe3b4;
+  --pill:#f6c66f;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:'Fredoka',system-ui,sans-serif;
+  background-color:var(--fondo);
+  background-image:url('fondocapibara.jpg');
+  background-repeat:repeat;   /* se repite sin cortes */
+  background-size:300px;      /* más grande = capibaras más grandes y menos pegados */
+  padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0);
+  overflow:hidden;
+}
+.screen{
+  position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
+  padding:20px;opacity:0;pointer-events:none;transition:opacity .4s ease;
+}
+.screen.active{opacity:1;pointer-events:auto}
+
+.card{
+  background:#fff;border-radius:34px;padding:28px 24px;
+  width:min(92vw,420px);text-align:center;
+  box-shadow:0 8px 0 rgba(0,0,0,.12);
+  transform:scale(.92);transition:transform .4s cubic-bezier(.3,1.5,.5,1);
+}
+.card.wide{width:min(94vw,640px)}
+.screen.active .card{transform:scale(1)}
+
+.logo{
+  width:130px;height:auto;display:block;margin:0 auto 8px;
+  animation:wave 1.6s ease-in-out infinite;
+}
+.logo.small{width:90px;animation:none}
+@keyframes wave{50%{transform:rotate(-6deg) translateY(-4px)}}
+
+h1{
+  font-family:'Lilita One',sans-serif;font-weight:400;text-transform:uppercase;
+  color:var(--naranja);font-size:clamp(2rem,9vw,2.8rem);line-height:1.05;
+  -webkit-text-stroke:2px var(--cafe);paint-order:stroke fill;
+  text-shadow:0 3px 0 var(--cafe);margin-bottom:10px;
+}
+h1.small-title{font-size:clamp(1.5rem,6.5vw,2.1rem)}
+.sub{
+  font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;
+  color:var(--cafe);margin-bottom:18px;
+}
+
+.btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.pill{
+  font-family:'Lilita One',sans-serif;text-transform:uppercase;font-size:.95rem;
+  color:var(--cafe);background:var(--pill);border:3px solid var(--cafe);
+  border-radius:999px;padding:9px 26px;cursor:pointer;
+  transition:transform .15s,background .15s;
+}
+.pill:hover{background:#ffd98a;transform:translateY(-2px)}
+.pill:active{transform:scale(.95)}
+
+.gifts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gift{
+  aspect-ratio:1;background:var(--crema);border:3px solid var(--cafe);
+  border-radius:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  padding:6px;transition:transform .2s;
+}
+.gift img{width:100%;height:100%;object-fit:contain}
+.gift:hover{transform:translateY(-5px) rotate(-2deg)}
+.gift.opened{background:#fff3d6}
+
+.modal{
+  position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;
+  align-items:center;justify-content:center;padding:20px;
+  opacity:0;pointer-events:none;transition:opacity .3s;z-index:10;
+}
+.modal.show{opacity:1;pointer-events:auto}
+.modal .card{transform:scale(.9);max-height:85vh;overflow-y:auto}
+.modal.show .card{transform:scale(1)}
+#modalText{text-transform:none;font-size:1rem;line-height:1.4}
+
+/* ---------- Pantalla de regalo: flores ---------- */
+.screen{overflow-y:auto}
+.screen > .card{margin:auto}
+
+.back{
+  position:fixed;top:calc(env(safe-area-inset-top,0px) + 14px);right:14px;
+  z-index:5;padding:7px 18px;font-size:.85rem;
+}
+.gift-card{
+  width:min(96vw,860px);background:#fff6e3;border:4px solid #f0d6a4;
+  padding:22px 20px 26px;
+}
+.gift-head{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:18px}
+.gift-head img{width:clamp(44px,9vw,64px);height:auto}
+.gift-head h1{margin:0}
+
+.gift-body{
+  display:grid;grid-template-columns:1fr minmax(180px,260px) 1fr;
+  gap:18px;align-items:center;
+}
+.msgs{display:flex;flex-direction:column;gap:14px}
+.msg{
+  background:#fff;border:2px solid #dcae62;border-radius:999px;
+  padding:11px 16px;font-size:.85rem;font-weight:600;color:var(--cafe);
+  text-transform:none;letter-spacing:0;
+}
+.bouquet{
+  width:100%;max-width:260px;aspect-ratio:1;margin:0 auto;border-radius:50%;
+  background:radial-gradient(circle,#fff 30%,#fde3cd 100%);
+  border:4px solid #edbf94;display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.bouquet img{width:88%;height:88%;object-fit:contain}
+.bouquet .fallback{font-size:5rem}
+
+@media (max-width:640px){
+  .gift-body{grid-template-columns:1fr;gap:14px}
+  .bouquet{order:-1;max-width:210px}
+  .msgs.right{margin-top:-4px}
+  .msgs{gap:10px}
+}
+
+/* ---------- Pantalla de regalo: música ---------- */
+.music-body{
+  display:grid;grid-template-columns:1.4fr 1fr;gap:22px;align-items:start;
+  text-align:left;
+}
+.video{
+  position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;
+  border:4px solid #dcae62;background:#2b1d08;
+}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-empty{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  padding:16px;text-align:center;color:#fbe3b4;font-weight:600;font-size:.9rem;
+}
+.song-info h2{
+  font-family:'Lilita One',sans-serif;font-weight:400;text-transform:uppercase;
+  font-size:1.15rem;color:var(--naranja);-webkit-text-stroke:1px var(--cafe);
+  paint-order:stroke fill;text-shadow:0 2px 0 var(--cafe);margin-bottom:6px;
+}
+.song-name{font-size:1.05rem;font-weight:600;color:var(--cafe);margin-bottom:16px}
+.song-desc{font-size:.9rem;line-height:1.45;color:var(--cafe);max-height:220px;overflow-y:auto}
+
+@media (max-width:640px){
+  .music-body{grid-template-columns:1fr;gap:16px}
+}
+
+/* ---------- Pantalla de regalo: fotos ---------- */
+.photos-card{background:#f6f8f7;border-color:#fff;padding:26px 22px}
+.photo-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:18px 16px;align-items:center;
+}
+.photo-title{grid-column:1 / -1;margin:6px 0;text-align:center;font-size:clamp(1.5rem,5vw,2.2rem)}
+.polaroid{
+  position:relative;background:#fff;padding:6px 6px 22px;
+  border:2px solid #e3b768;border-radius:4px;
+  box-shadow:0 5px 10px rgba(0,0,0,.18);
+  transform:rotate(var(--r));transition:transform .25s;
+}
+.polaroid:hover{transform:rotate(0deg) scale(1.06);z-index:2}
+.polaroid .photo{
+  display:block;width:100%;aspect-ratio:1/1;object-fit:cover;
+  /* foto de ejemplo mientras no tengas la tuya */
+  background:linear-gradient(#7ec3ee 0 45%,#8fcb4a 45% 75%,#e9c583 75%);
+}
+.polaroid .peek{position:absolute;width:38px;height:auto;pointer-events:none}
+
+@media (max-width:640px){
+  .photo-grid{grid-template-columns:repeat(2,1fr);gap:16px 14px}
+  .photo-title{order:-1;margin-bottom:6px}
+}
+
+/* ---------- Pantalla de regalo: carta ---------- */
+.letter-card{
+  display:grid;grid-template-columns:1fr 190px;gap:22px;align-items:start;
+  text-align:left;padding:26px 24px;
+}
+.letter{position:relative;padding-bottom:50px;align-self:stretch}
+.letter h1{font-size:clamp(1.6rem,5vw,2.2rem);margin-bottom:14px}
+.letter-text p{
+  font-size:.9rem;line-height:1.5;color:var(--cafe);font-weight:500;margin-bottom:12px;
+}
+.letter-text .sign{margin-top:16px}
+.letter-capy{position:absolute;right:0;bottom:0;width:62px;height:auto}
+
+.letter-photos{display:flex;flex-direction:column;gap:14px}
+.letter-photo{
+  position:relative;aspect-ratio:1/1;border:4px solid #e39a2f;border-radius:6px;overflow:hidden;
+  background:linear-gradient(#7ec3ee 0 45%,#8fcb4a 45% 75%,#e9c583 75%);
+  box-shadow:0 3px 0 rgba(0,0,0,.12);
+}
+.letter-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%}
+
+@media (max-width:640px){
+  .letter-card{grid-template-columns:1fr}
+  .letter-photos{flex-direction:row}
+  .letter-photo{flex:1}
+}
